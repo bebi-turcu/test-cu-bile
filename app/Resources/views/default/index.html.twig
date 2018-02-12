@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        <h3>Introduceti datele problemei:</h3>
+    </div>
+    <form id="userinput" action="">
+        <div class="form-group">
+            <input type="text" name="dimensiune" id="dim" placeholder="Nr. culori" />
+            <input type="text" name="distributie" id="distr" placeholder="Nr. bile din fiecare culoare, separate de virgula..." />
+            <button type="submit" name="send" id="send" class="btn btn-primary">Verifica</button><br />
+        </div>
+    </form>
+    <div id="alert"></div>
+    <div class="hidden"></div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#userinput").bind('submit',function() {
+                alert_div = $("#alert");
+                alert_div.html('');
+                hidden = $(".hidden");
+                hidden.hide();
+                var distr = $('#distr').val();
+                var dim = $('#dim').val();
+
+                $.post('/verify',{distribution:distr, dimension:dim}, function(data){
+                    if (!data) {
+                        alert_div.html('Eroare: nu sunt date');
+                    } else {
+                        hidden.html('');
+                        hidden.show('fast', function () {
+                            $(this).append(data);
+                        });
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+{% endblock %}

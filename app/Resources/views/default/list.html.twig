@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Lista gruparilor salvate in baza de date</h3>
+
+    <table class="groupings">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Colours</th>
+                <th>Distribution</th>
+                <th>Grouping</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for row in groupings %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.colours }}</td>
+                <td>{{ row.distribution }}</td>
+                <td>
+                    {% for group in row.grouping %}
+                        [
+                        {% for elem in group %}
+                            {{ elem }},
+                        {% endfor %}
+                        ],
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

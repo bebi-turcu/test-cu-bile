@@ -1,0 +1,36 @@
+header {
+	background-color:rgb(255, 255, 193);
+	padding:0 15px 5px;
+	box-shadow:-5px 8px 6px RGB(136, 136, 136);
+}
+.menu {
+	padding:3px 24px 3px 6px;
+}
+.container {
+	padding-top:25px;
+}
+input#dim {
+	width:72px;
+}
+input#distr {
+	width:345px;
+}
+#alert {
+	color:red;
+	padding:20px;
+}
+.hidden {
+    display:none;
+    height:450px;
+    width:600px;
+}
+table.groupings td, table.groupings th {
+	text-align:left;
+	padding-right:8px;
+	vertical-align:top;
+}
+button#send {
+	padding-top:0;
+	padding-bottom:3px;
+	margin:-7px 4px 0;
+}

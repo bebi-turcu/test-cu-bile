@@ -1,0 +1,21 @@
+{% block body %}
+
+    <ul><h3>Distributia bilelor:</h3>
+        <li>0 reprezinta prima culoare, 1 a doua, 2 a treia etc.</li>
+        <li>bilele sunt grupate pe randuri, maxim 2 culori/rand.</li>
+        <li>gruparea e in final salvata automat in baza de date.</li>
+    </ul>
+
+    <table>
+        <tbody>
+        {% for row in rows %}
+            <tr>
+                {% for colour in row %}
+                    <td>&nbsp;&nbsp;{{ colour }}&nbsp;</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
